@@ -64,6 +64,11 @@ Link* Link::erase(){
 	return p->succ;
 }
 
-
-
-
+Link::~Link(){
+	Link* p=this;
+	while(p){
+		track = p;
+		p=p->next;
+		delete[] track;
+	}
+}
