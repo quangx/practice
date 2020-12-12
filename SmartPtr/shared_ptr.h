@@ -59,6 +59,11 @@ public:
         // Assign new values
         // increase  new counter
         // return *this
+	*counter--;
+	pointer=p.pointer;
+	counter=p.counter;
+	++*counter;
+	return *this;
 	
 	
 
@@ -70,6 +75,12 @@ public:
         // Assign new values
         // increase  new counter (depending how you implement, may not need)
         // return *this;
+	*counter--;
+	pointer=p.pointer;
+	counter=p.counter;
+	*++counter;
+	return *this;
+
     }
     
 	// Destructor
@@ -103,8 +114,8 @@ private:
     T* pointer;
     int* counter;
    
-    shared_pointer(T* p): pointer{p}, counter{}{
-    	*counter=1;
+    shared_pointer(T* p): pointer{p} ,counter{new int(0)}{
+	    *counter=1;
     }
             
 };
